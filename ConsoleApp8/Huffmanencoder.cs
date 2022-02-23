@@ -2,13 +2,18 @@ using System.IO;
 using System.Collections.Generic;
 public class Huffmanencoder
 {
-    private Dictionary<char, int> GetCharactersCountInFile(string path)
+    private class CharacterCount
     {
-        var fileContent = File.ReadAllText(path);
+        public char Character;
+        public int Count;
+    }
+
+    private Dictionary<char, int> GetCharactersCountInString(string str)
+    {
         var dictionary = new Dictionary<char, int>();
-        for (int i = 0; i < fileContent.Length; i++)
+        for (int i = 0; i < str.Length; i++)
         {
-            var currentChar = fileContent[i];
+            var currentChar = str[i];
             if (dictionary.ContainsKey(currentChar))
             {
                 dictionary[currentChar]++;
@@ -22,5 +27,7 @@ public class Huffmanencoder
     }
 
 
+
+    
 
 }
